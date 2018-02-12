@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Heartbeat</string>
+    <string name="default_text">--</string>
+</resources>
