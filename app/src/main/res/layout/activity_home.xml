@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.jcs.heartbeat.Home">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter your Age:"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:hint="age"
+        android:inputType="number"
+        android:layout_gravity="center"
+        android:textSize="22sp"
+        android:padding="16dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Measure Resting Heart Rate
+        (and calculate target heart rate)"
+        android:padding="16dp"
+        android:layout_margin="8dp"
+        android:textSize="22sp"
+        android:background="@color/colorAccent"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Measure Workout Heart Rate
+        (and check for efficiency)"
+
+        android:padding="16dp"
+        android:layout_margin="8dp"
+        android:textSize="22sp"
+        android:background="@color/colorAccent"/>
+
+</LinearLayout>
