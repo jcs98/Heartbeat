@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -52,11 +53,21 @@ public class MainActivity extends Activity {
     private static double beats = 0;
     private static long startTime = 0;
 
+    public Button retryButton = null;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        retryButton = (Button) findViewById(R.id.btn_retry);
+        retryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startCam();
+            }
+        });
 
         preview = (SurfaceView) findViewById(R.id.preview);
         previewHolder = preview.getHolder();
@@ -185,11 +196,20 @@ public class MainActivity extends Activity {
                 text.setText(String.valueOf(beatsAvg));
                 startTime = System.currentTimeMillis();
                 beats = 0;
+                stopCam();
             }
             processing.set(false);
         }
     };
 
+    public static void stopCam(){
+        camera.stopPreview();
+    }
+
+    public static void startCam(){
+        camera.startPreview();
+        startTime = System.currentTimeMillis();
+    }
 
 
     private static SurfaceHolder.Callback surfaceCallback = new SurfaceHolder.Callback() {
