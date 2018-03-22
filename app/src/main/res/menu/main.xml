@@ -3,11 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:title="Retry"
+        android:icon="@drawable/ic_refresh"
         android:orderInCategory="1"
         app:showAsAction="ifRoom"
         android:id="@+id/action_retry"/>
     <item
         android:title="Ok"
+        android:icon="@drawable/ic_ok"
         android:orderInCategory="2"
         app:showAsAction="ifRoom"
         android:id="@+id/action_ok"/>
