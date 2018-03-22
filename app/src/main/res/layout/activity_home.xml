@@ -8,44 +8,73 @@
     android:orientation="vertical"
     tools:context="com.example.jcs.heartbeat.Home">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enter your Age:"
-        android:textSize="18sp"
-        android:padding="16dp"
-        android:layout_gravity="center"/>
+        android:textSize="22sp"
+        android:padding="16dp"/>
 
     <EditText
         android:layout_width="wrap_content"
-        android:layout_height="1dp"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:id="@+id/et_age"
         android:hint="age"
         android:inputType="number"
-        android:layout_gravity="center"
         android:textSize="22sp"
         android:padding="16dp"/>
-    <TextView
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="Measure Resting Heart Rate
-        (and calculate target heart rate)"
         android:padding="16dp"
         android:layout_margin="8dp"
-        android:textSize="22sp"
-        android:background="@color/colorAccent"/>
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true"
+        android:id="@+id/ll_restingHeartRate"
+        android:background="@color/colorPrimary">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resting Heart Rate:"
+            android:textSize="22sp"
+            android:padding="16dp"/>
 
-    <TextView
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_restingHeartRate"
+            android:hint="get RHR"
+            android:textSize="22sp"
+            android:padding="16dp"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="Measure Workout Heart Rate
-        (and check for efficiency)"
-
         android:padding="16dp"
         android:layout_margin="8dp"
-        android:textSize="22sp"
-        android:background="@color/colorAccent"/>
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true"
+        android:id="@+id/ll_targetHeartRate"
+        android:background="@color/colorPrimary">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calculate Target Heart Rate"
+            android:textSize="22sp"
+            android:padding="16dp"/>
+
+    </LinearLayout>
+
 
 </LinearLayout>

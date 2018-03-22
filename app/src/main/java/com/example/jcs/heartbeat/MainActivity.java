@@ -2,6 +2,7 @@ package com.example.jcs.heartbeat;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.hardware.Camera;
 import android.os.Bundle;
@@ -53,7 +54,9 @@ public class MainActivity extends Activity {
     private static double beats = 0;
     private static long startTime = 0;
 
-    public Button retryButton = null;
+    public Button retryButton;
+    public Button okButton;
+    public static String restingHeartRate;
 
 
     @Override
@@ -66,6 +69,14 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 startCam();
+            }
+        });
+
+        okButton = (Button) findViewById(R.id.btn_ok);
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
 
@@ -193,7 +204,8 @@ public class MainActivity extends Activity {
                     }
                 }
                 int beatsAvg = (beatsArrayAvg / beatsArrayCnt);
-                text.setText(String.valueOf(beatsAvg));
+                restingHeartRate = String.valueOf(beatsAvg);
+                text.setText(restingHeartRate);
                 startTime = System.currentTimeMillis();
                 beats = 0;
                 stopCam();
@@ -209,6 +221,13 @@ public class MainActivity extends Activity {
     public static void startCam(){
         camera.startPreview();
         startTime = System.currentTimeMillis();
+    }
+
+    public void finish(){
+        Intent data = new Intent();
+        data.putExtra("restingHeartRate", restingHeartRate);
+        setResult(RESULT_OK, data);
+        super.finish();
     }
 
 

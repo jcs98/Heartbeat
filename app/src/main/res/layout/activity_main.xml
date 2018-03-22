@@ -5,12 +5,11 @@
     android:layout_height="fill_parent"
     android:id="@+id/layout">
     <LinearLayout android:id="@+id/top"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:padding="16dp"
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="wrap_content"
+        android:layout_weight="0">
         <TextView android:id="@+id/text"
             android:text="@string/default_text"
             android:textSize="64sp"
@@ -23,7 +22,7 @@
         <RelativeLayout
             android:orientation="horizontal"
             android:layout_width="22dp"
-            android:layout_height="wrap_content">
+            android:layout_height="22dp">
             <com.example.jcs.heartbeat.HeartbeatView android:id="@+id/image"
                 android:layout_centerInParent="true"
                 android:layout_width="wrap_content"
