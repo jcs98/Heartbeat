@@ -3,6 +3,7 @@ package com.example.jcs.heartbeat;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.PowerManager;
@@ -57,9 +58,13 @@ public class MainActivity extends AppCompatActivity {
     private static double beats = 0;
     private static long startTime = 0;
 
-    public static String restingHeartRate;
-    private static LinearLayout measuringRHRLinearLayout;
+    public static String heartRate;
+    private LinearLayout measuringRHRLinearLayout;
     private static LinearLayout calculatingTHRLinearLayout;
+    private static int maximumHeartRate;
+    private static int heartRateReserve;
+    private static boolean calculatingTHR =false;
+    public static int rhr=0;
 
 
     @Override
@@ -84,13 +89,27 @@ public class MainActivity extends AppCompatActivity {
         if(intentThatStartedThisActivity.hasExtra("age")){
             measuringRHRLinearLayout = findViewById(R.id.ll_measuringRHR);
             calculatingTHRLinearLayout = findViewById(R.id.ll_calculatingTHR);
-            calculateTargetHeartRate();
+
+            int age = Integer.parseInt(intentThatStartedThisActivity.getStringExtra("age"));
+            rhr = Integer.parseInt(intentThatStartedThisActivity.getStringExtra("restingHeartRate"));
+
+            calculateTargetHeartRate(age);
         }
     }
 
-    private void calculateTargetHeartRate() {
+    private void calculateTargetHeartRate(int age) {
         measuringRHRLinearLayout.setVisibility(View.GONE);
         calculatingTHRLinearLayout.setVisibility(View.VISIBLE);
+        calculatingTHR = true;
+
+        maximumHeartRate = 220 - age;
+        TextView MHRTextView = (TextView) findViewById(R.id.tv_MHR);
+        MHRTextView.setText(String.valueOf(maximumHeartRate));
+
+        heartRateReserve = maximumHeartRate - rhr;
+        TextView HRRTextView = (TextView) findViewById(R.id.tv_HRR);
+        HRRTextView.setText(String.valueOf(heartRateReserve));
+
     }
 
     @Override
@@ -226,8 +245,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 int beatsAvg = (beatsArrayAvg / beatsArrayCnt);
-                restingHeartRate = String.valueOf(beatsAvg);
-                text.setText(restingHeartRate);
+                heartRate = String.valueOf(beatsAvg);
+                text.setText(heartRate);
                 startTime = System.currentTimeMillis();
                 beats = 0;
                 stopCam();
@@ -238,6 +257,32 @@ public class MainActivity extends AppCompatActivity {
 
     public static void stopCam(){
         camera.stopPreview();
+        if(calculatingTHR){
+            setCard();
+        }
+    }
+
+    private static void setCard() {
+
+        int index = 1;
+        int workoutHeartRate = Integer.parseInt(heartRate);
+
+        for(double i=0.6; i<1; i=i+0.1){
+            //actual Karvonen's formula: (workoutHeartRate > heartRateReserve*i + restingHeartRate)
+            if(workoutHeartRate > maximumHeartRate*i) index++;
+            else break;
+        }
+
+        for(int i=1; i<6; i++){
+            TextView card = (TextView) calculatingTHRLinearLayout.getChildAt(i);
+            card.setBackgroundColor(Color.parseColor("white"));
+            card.setTextColor(Color.parseColor("red"));
+        }
+
+
+        TextView card = (TextView) calculatingTHRLinearLayout.getChildAt(index);
+        card.setBackgroundColor(Color.parseColor("red"));
+        card.setTextColor(Color.parseColor("white"));
     }
 
     public static void startCam(){
@@ -247,7 +292,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void finish(){
         Intent data = new Intent();
-        data.putExtra("restingHeartRate", restingHeartRate);
+        data.putExtra("restingHeartRate", heartRate);
         setResult(RESULT_OK, data);
         super.finish();
     }
