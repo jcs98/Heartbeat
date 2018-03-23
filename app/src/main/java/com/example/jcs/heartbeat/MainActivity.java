@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -57,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
     private static long startTime = 0;
 
     public static String restingHeartRate;
+    private static LinearLayout measuringRHRLinearLayout;
+    private static LinearLayout calculatingTHRLinearLayout;
 
 
     @Override
@@ -76,6 +79,18 @@ public class MainActivity extends AppCompatActivity {
         wakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "DoNotDimScreen");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Intent intentThatStartedThisActivity = getIntent();
+        if(intentThatStartedThisActivity.hasExtra("age")){
+            measuringRHRLinearLayout = findViewById(R.id.ll_measuringRHR);
+            calculatingTHRLinearLayout = findViewById(R.id.ll_calculatingTHR);
+            calculateTargetHeartRate();
+        }
+    }
+
+    private void calculateTargetHeartRate() {
+        measuringRHRLinearLayout.setVisibility(View.GONE);
+        calculatingTHRLinearLayout.setVisibility(View.VISIBLE);
     }
 
     @Override

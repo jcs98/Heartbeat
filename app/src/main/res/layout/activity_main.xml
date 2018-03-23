@@ -15,7 +15,7 @@
             android:text="@string/default_text"
             android:textSize="64sp"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:textAlignment="center">
         </TextView>
@@ -39,14 +39,33 @@
         </SurfaceView>
     </LinearLayout>
 
-    <!--this is dummy data-->
+    <!--This will be opened during RHR measurement-->
 
     <LinearLayout
+        android:id="@+id/ll_measuringRHR"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
         android:background="#C0C0C0">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="48dp"
+            android:text="You are measuring RHR"
+            android:textSize="22sp"/>
+    </LinearLayout>
+
+    <!--List Starts here-->
+
+    <LinearLayout
+        android:id="@+id/ll_calculatingTHR"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="#C0C0C0"
+        android:visibility="gone">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -66,6 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="MHR"
+            android:id="@+id/tv_MHR"
             android:textColor="@color/colorSecondary"
             android:textSize="18sp"/>
     </LinearLayout>
@@ -88,12 +108,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="HRR"
+                android:id="@+id/tv_HRR"
                 android:textColor="@color/colorSecondary"
                 android:textSize="18sp"/>
         </LinearLayout>
 
         <TextView
             android:text="Warm Up/Cool Down"
+            android:id="@+id/card1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -104,6 +126,7 @@
             android:layout_margin="8dp"/>
         <TextView
             android:text="Your'e burning fat!"
+            android:id="@+id/card2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -114,6 +137,7 @@
             android:layout_margin="8dp"/>
         <TextView
             android:text="Your'e getting fitter!"
+            android:id="@+id/card3"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -124,6 +148,7 @@
             android:layout_margin="8dp"/>
         <TextView
             android:text="Extreme Training"
+            android:id="@+id/card4"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -134,6 +159,7 @@
             android:layout_margin="8dp"/>
         <TextView
             android:text="You need to cool down!"
+            android:id="@+id/card5"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
