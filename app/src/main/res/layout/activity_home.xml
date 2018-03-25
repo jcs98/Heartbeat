@@ -6,12 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.jcs.heartbeat.Home">
+    tools:context="com.example.jcs.heartbeat.Home"
+    android:padding="16dp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:src="@drawable/home_background"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_margin="8dp">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,13 +34,13 @@
         android:hint="age"
         android:inputType="number"
         android:textSize="22sp"
-        android:padding="16dp"/>
+        android:padding="16dp"
+        android:fontFamily="serif"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:padding="16dp"
         android:layout_margin="8dp"
         android:orientation="horizontal"
@@ -45,23 +53,22 @@
             android:layout_height="wrap_content"
             android:text="Resting Heart Rate:"
             android:textColor="@color/colorSecondary"
-            android:textSize="22sp"
-            android:padding="16dp"/>
+            android:textSize="22sp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
             android:id="@+id/tv_restingHeartRate"
             android:hint="get RHR"
             android:textColor="@color/colorSecondary"
             android:textSize="22sp"
-            android:padding="16dp"/>
+            android:fontFamily="serif"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:padding="16dp"
         android:layout_margin="8dp"
         android:orientation="horizontal"
@@ -72,10 +79,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Calculate Target Heart Rate"
+            android:text="Check Workout Efficiency"
             android:textColor="@color/colorSecondary"
-            android:textSize="22sp"
-            android:padding="16dp"/>
+            android:textSize="22sp"/>
 
     </LinearLayout>
 
