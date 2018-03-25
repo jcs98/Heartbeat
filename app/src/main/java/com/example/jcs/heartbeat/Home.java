@@ -29,6 +29,11 @@ public class Home extends AppCompatActivity {
         rhrTextView = (TextView) findViewById(R.id.tv_restingHeartRate);
         thrLinearLayout = (LinearLayout) findViewById(R.id.ll_targetHeartRate);
 
+        if(savedInstanceState!=null){
+            ageEditText.setText(savedInstanceState.getString("storedAge"));
+            rhrTextView.setText(savedInstanceState.getString("storedRHR"));
+        }
+
         rhrLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,6 +46,15 @@ public class Home extends AppCompatActivity {
                 calculateTargetHeartRate();
             }
         });
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        String currentAge = ageEditText.getText().toString();
+        outState.putString("storedAge", currentAge);
+        String currentRHR = rhrTextView.getText().toString();
+        outState.putString("storedRHR", currentRHR);
     }
 
     private void calculateTargetHeartRate() {

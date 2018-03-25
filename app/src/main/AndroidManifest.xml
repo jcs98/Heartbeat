@@ -17,7 +17,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Home"
-            android:label="Heartbeat">
+            android:label="Heartbeat"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
