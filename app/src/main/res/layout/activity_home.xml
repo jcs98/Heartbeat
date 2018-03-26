@@ -34,8 +34,7 @@
         android:hint="age"
         android:inputType="number"
         android:textSize="22sp"
-        android:padding="16dp"
-        android:fontFamily="serif"/>
+        android:padding="16dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -62,8 +61,7 @@
             android:id="@+id/tv_restingHeartRate"
             android:hint="get RHR"
             android:textColor="@color/colorSecondary"
-            android:textSize="22sp"
-            android:fontFamily="serif"/>
+            android:textSize="22sp"/>
     </LinearLayout>
 
     <LinearLayout

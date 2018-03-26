@@ -11,14 +11,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
         <TextView android:id="@+id/text"
             android:text="@string/default_text"
             android:textSize="64sp"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:textAlignment="center">
         </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="bpm"
+                android:textSize="24sp"
+                android:paddingBottom="4dp"
+                android:layout_gravity="center"/>
+        </LinearLayout>
 
         <RelativeLayout
             android:orientation="horizontal"
@@ -47,14 +60,55 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:background="#C0C0C0"
+        android:padding="16dp"
         >
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="48dp"
-            android:text="You are measuring RHR"
-            android:textSize="22sp"/>
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:textSize="14sp"
+            android:textColor="@color/colorSecondary"
+            android:background="@color/colorTertiary"
+            android:text="Instructions:
+Gently place the tip of your finger on the camera to completely covers the lens.
+It is not necessary to cover the flash. Hold your phone steady."
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="4dp"
+            android:textSize="20sp"
+            android:text="Ideal Resting Heart Rates range:"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:textSize="28sp"
+            android:textAlignment="center"
+            android:text="60 to 100 bpm"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:textSize="20sp"
+            android:text="In a healthier heart achieved via regular exercise, this can drop to around 40 bpm."
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:layout_marginTop="8dp"
+            android:textSize="14sp"
+            android:textColor="@color/colorSecondary"
+            android:background="@color/colorTertiary"
+            android:text="Warning:
+Pressing too hard on the lens or poor lighting conditions can affect the accuracy of measurements.
+You can remeasure your heart rate by clicking the retry icon in the action bar."
+            />
+
     </LinearLayout>
 
     <!--List Starts here-->
