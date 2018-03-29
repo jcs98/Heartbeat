@@ -65,6 +65,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:padding="6dp"
             android:textSize="14sp"
             android:textColor="@color/colorSecondary"
@@ -86,7 +87,8 @@ It is not necessary to cover the flash. Hold your phone steady."
             android:layout_height="wrap_content"
             android:padding="4dp"
             android:textSize="28sp"
-            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="#000000"
             android:text="60 to 100 bpm"/>
         <TextView
             android:layout_width="match_parent"
@@ -99,6 +101,7 @@ It is not necessary to cover the flash. Hold your phone steady."
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:padding="6dp"
             android:layout_marginTop="8dp"
             android:textSize="14sp"
@@ -119,20 +122,19 @@ You can remeasure your heart rate by clicking the retry icon in the action bar."
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:background="#C0C0C0"
         android:visibility="gone">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2">
+            android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
         android:orientation="horizontal"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimary"
+        android:paddingTop="8dp"
+        android:paddingLeft="16dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -151,8 +153,9 @@ You can remeasure your heart rate by clicking the retry icon in the action bar."
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
             android:orientation="horizontal"
+            android:padding="8dp"
+            android:paddingStart="16dp"
             android:background="@color/colorPrimary">
             <TextView
                 android:layout_width="wrap_content"
@@ -167,68 +170,64 @@ You can remeasure your heart rate by clicking the retry icon in the action bar."
                 android:hint="HRR"
                 android:id="@+id/tv_HRR"
                 android:textColor="@color/colorSecondary"
-                android:textSize="22sp"/>
+                android:textSize="18sp"/>
         </LinearLayout>
 
         </LinearLayout>
-
+<LinearLayout
+    android:id="@+id/ll_cardList"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="2"
+    android:padding="8dp"
+    android:background="@color/colorTertiary"
+    android:orientation="vertical">
         <TextView
-            android:text="Warm Up/Cool Down"
+            android:text="Warm Up/Cool Down Zone"
             android:id="@+id/card1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textColor="@color/colorPrimary"
-            android:background="@color/colorSecondary"
-            android:textSize="18sp"
-            android:padding="4dp"
-            android:layout_margin="8dp"/>
+            android:gravity="center"
+            android:textSize="18sp"/>
         <TextView
-            android:text="Your'e burning fat!"
+            android:text="Aerobic (Fat Burn) Zone"
             android:id="@+id/card2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textColor="@color/colorPrimary"
-            android:background="@color/colorSecondary"
-            android:textSize="18sp"
-            android:padding="4dp"
-            android:layout_margin="8dp"/>
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textSize="18sp"/>
         <TextView
-            android:text="Your'e getting fitter!"
+            android:text="Anaerobic (Fitness\Cardio) Zone"
             android:id="@+id/card3"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textColor="@color/colorPrimary"
-            android:background="@color/colorSecondary"
-            android:textSize="18sp"
-            android:padding="4dp"
-            android:layout_margin="8dp"/>
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textSize="18sp"/>
         <TextView
-            android:text="Extreme Training"
+            android:text="Extreme Training Zone"
             android:id="@+id/card4"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textColor="@color/colorPrimary"
-            android:background="@color/colorSecondary"
-            android:textSize="18sp"
-            android:padding="4dp"
-            android:layout_margin="8dp"/>
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textSize="18sp"/>
         <TextView
             android:text="You need to cool down!"
             android:id="@+id/card5"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textColor="@color/colorPrimary"
-            android:background="@color/colorSecondary"
-            android:textSize="18sp"
-            android:padding="4dp"
-            android:layout_margin="8dp"/>
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textSize="18sp"/>
 
-
+</LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     public static String heartRate;
     private LinearLayout measuringRHRLinearLayout;
     private static LinearLayout calculatingTHRLinearLayout;
+    private static LinearLayout cardListLinearLayout;
     private static int maximumHeartRate;
     private static int heartRateReserve;
     private static boolean calculatingTHR =false;
@@ -89,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         if(intentThatStartedThisActivity.hasExtra("age")){
             measuringRHRLinearLayout = findViewById(R.id.ll_measuringRHR);
             calculatingTHRLinearLayout = findViewById(R.id.ll_calculatingTHR);
+            cardListLinearLayout = findViewById(R.id.ll_cardList);
 
             int age = Integer.parseInt(intentThatStartedThisActivity.getStringExtra("age"));
             rhr = Integer.parseInt(intentThatStartedThisActivity.getStringExtra("restingHeartRate"));
@@ -264,7 +266,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static void setCard() {
 
-        int index = 1;
+        int index = 0;
         int workoutHeartRate = Integer.parseInt(heartRate);
 
         for(double i=0.6; i<1; i=i+0.1){
@@ -273,14 +275,14 @@ public class MainActivity extends AppCompatActivity {
             else break;
         }
 
-        for(int i=1; i<6; i++){
-            TextView card = (TextView) calculatingTHRLinearLayout.getChildAt(i);
+        for(int i=0; i<5; i++){
+            TextView card = (TextView) cardListLinearLayout.getChildAt(i);
             card.setBackgroundColor(Color.parseColor("white"));
             card.setTextColor(Color.parseColor("red"));
         }
 
 
-        TextView card = (TextView) calculatingTHRLinearLayout.getChildAt(index);
+        TextView card = (TextView) cardListLinearLayout.getChildAt(index);
         card.setBackgroundColor(Color.parseColor("red"));
         card.setTextColor(Color.parseColor("white"));
     }
