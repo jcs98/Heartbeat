@@ -1,5 +1,9 @@
 # Heartbeat
 Heartbeat is an Android based heart rate monitor which uses the camera and its flash to determine the users heart rate in beats per minute.  
+<p align="center">
+<img width=300px src="demo.gif" alt="demo">
+</p>
+
 ## How it works
 * The user enters his/her age and then measures his/her resting heart rate which gets stored in the app.  
 * After/During a workout, the user measures his/her heart rate again.  
